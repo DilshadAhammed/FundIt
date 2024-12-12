@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Source Code Pro", serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    /* background-color: yellow; */
+}
+.nav-links ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    /* background-color: green; */
+}
+.nav-links ul li{
+    font-weight: 800;
+}
+.sign-link{
+    text-decoration: none;
+    color: white;
+}
+.contact-us{
+    text-decoration: none;
+    background-color: blueviolet;
+    color: black;
+    padding: 15px;
+    border-radius: 25px;
+}
+.logo{
+    display: flex;
+}
+.logo-img{
+    height: 45px;
+}
+.logo-a{
+    color: white;
+}
+
+
+.banner{
+    width: 40%;
+    background-color: rgb(140, 86, 190);
+    border-radius: 0 100px 100px 0px;
+    /* position: absolute; */
+    left: 0px;
+    font-weight: 800;
+    font-size: 60px;
+    padding: 20px;
+    margin-top: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.356);
+    box-shadow: 5px 10px 15px;
+    /* text-align: center; */
+
+}
+
+.f-section{
+    height: 100vh;
+    background: url(./assets/bg.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100vw;
+    padding: 0 5%;
+    
+    
+}
+.f-section p{
+    /* background-color: black; */
+    max-width: 600px;
+    color: white;
+    margin-top: 80px;
+    font-weight: 500;
+    font-size: 30px;
+}
+.btn-lern-more{
+    text-decoration: none;
+    color: blueviolet;
+    font-size: 30px;
+}
+.home-btns{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: aqua; */
+}
+.m-btns{
+    
+    display: flex;
+    gap: 20px;
+    /* background-color: wheat; */
+}
+.link-btn{
+    text-decoration: none;
+    background-color: blueviolet;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* second section */
+
+.s-section{
+    height: 100vh;
+    background-color: #101728;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m-para{
+    width: 60%; 
+}
+.s-section h1 span{
+    color: #1f41bb;
+}
+.s-section h1{
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+}
+.m-para{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.m-para p{
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+}
+
+/* Third section */
+
+.t-section{
+    height: 100vh;
+    padding: 0 5%;
+    background-color: #101728;
+    display: flex;
+    align-items: center;
+}
+.t-section div{
+    width: 45%;
+}
+
+.t-section h1 span{
+    color: white;
+}
+.t-section h1{
+    font-size: 48px;
+    font-weight: 800;
+    color: #9340ff;
+}
+
+.t-section p{
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+}
+.footer{
+    background-color: black;
+    height: 35vh;
+    color: white;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 15%;
+}
+
+.socia-icons{
+    filter: invert(1);
+    margin: 1rem 0.5rem;
+    width: 21px;
+    height: 21px;
+}
