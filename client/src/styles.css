@@ -7,6 +7,10 @@
     font-family: "Source Code Pro", serif;
     font-optical-sizing: auto;
     font-style: bold;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
 }
 
 /* navbar */

@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import logo from "../assets/logo.png";
-import instagram from "../assets/instagram.png"
-import linkedin from "../assets/linkedin.png"
-import faceBook from "../assets/faceBook.png"
+import instagram from "../assets/instagram.png";
+import linkedin from "../assets/linkedin.png";
+import faceBook from "../assets/faceBook.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -21,12 +22,12 @@ function Home() {
               Learn more
             </a>
             <div className="m-btns">
-              <a href="http://" className="link-btn">
-                Donate
-              </a>
-              <a href="http://" className="link-btn">
-                Collect
-              </a>
+              <Link to="/donate" className="link-btn" >
+              Donate
+              </Link>
+              <Link to="/collect" className="link-btn" >
+              Collect
+              </Link>
             </div>
           </div>
         </div>
@@ -44,7 +45,7 @@ function Home() {
             </p>
           </div>
         </div>
-        <div className="t-section" >
+        <div className="t-section">
           <div>
             <h1>
               <span>Connect</span> with Communities
@@ -62,17 +63,17 @@ function Home() {
             <h1 className="logo-txt">IT</h1>
           </div>
           <div className="details">
-            <div >
+            <div>
               <h1>Contact</h1>
               <p>Email</p>
               <p>Phone</p>
               <p>675101</p>
             </div>
             <div className="socials">
-              <img src={linkedin} className="socia-icons"/>
-              <img src={instagram} className="socia-icons"/>
-              <img src={faceBook} className="socia-icons"/>
-              <img src={instagram} className="socia-icons"/>
+              <img src={linkedin} className="socia-icons" />
+              <img src={instagram} className="socia-icons" />
+              <img src={faceBook} className="socia-icons" />
+              <img src={instagram} className="socia-icons" />
             </div>
           </div>
         </div>
