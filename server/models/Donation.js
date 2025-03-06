@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const collectionFormSchema = new mongoose.Schema({
+const donationSchema = new mongoose.Schema({
   purpose: {
     type: String,
     required: true,
@@ -37,10 +37,17 @@ const collectionFormSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  approved: { type: Boolean, default: false },
+  donors: [
+    {
+      name: { type: String, required: true },
+      amount: { type: Number, required: true },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-module.exports = mongoose.model('CollectionForm', collectionFormSchema);
+module.exports = mongoose.model('Donation', donationSchema);

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const CollectionForm = require('../models/CollectionForm');
+const Donation = require('../models/Donation');
 const multer = require('multer');
+const auth = require('../middleware/auth');
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
@@ -14,14 +15,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// GET route for list all donations
-router.get('/', async (req, res) => {
-    try {
-        const collectionForms = await CollectionForm.find();
-        res.json(collectionForms);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+// Get approved donations (for Donate page)
+router.get('/approved', async (req, res) => {
+  try {
+    const donations = await Donation.find({ approved: true });
+    res.json(donations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 
@@ -44,7 +45,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
         return res.status(400).json({ error: 'File upload failed!' });
       }
 
-    const collectionForm = new CollectionForm({
+    const collectionForm = new Donation({
       purpose,
       image: req.file.path, // Path to the uploaded image
       accountHolderName,
@@ -54,6 +55,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
       phoneNumber,
       goal,
       remark,
+      approved: false,
     });
     // console.log(req.file);
     
@@ -63,6 +65,40 @@ router.post('/create', upload.single('image'), async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error', error });
+  }
+});
+
+// Get all donations (for admin)
+router.get('/admin', auth, async (req, res) => {
+  try {
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Access denied' });
+    }
+    const donations = await Donation.find();
+    res.json(donations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+// Approve a donation (admin only)
+router.put('/approve/:id', auth, async (req, res) => {
+  try {
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Access denied' });
+    }
+    const donation = await Donation.findByIdAndUpdate(
+      req.params.id,
+      { approved: true },
+      { new: true }
+    );
+    if (!donation) {
+      return res.status(404).json({ error: 'Donation not found' });
+    }
+    res.json({ message: 'Donation approved successfully', donation });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 });
 

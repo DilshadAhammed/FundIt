@@ -57,7 +57,7 @@ const CollectForm = () => {
         phoneNumber: '',
         goal: '',
         remark: '',
-      });
+      }); 
     } catch (error) {
       console.error(error);
       
